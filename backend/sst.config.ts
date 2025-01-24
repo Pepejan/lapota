@@ -26,10 +26,15 @@ export default $config({
             link: [linkTable, api],
         });
 
+        api.route("GET /list", {
+            handler: "list.handler",
+            link: [linkTable, api],
+        });
+
         api.route("GET /{id}", {
             handler: "redirect.handler",
             link: [linkTable],
-        })
+        });
 
         return {
             api: api.url,
