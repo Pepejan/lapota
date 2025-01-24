@@ -19,9 +19,11 @@ export default $config({
 
         const api = new sst.aws.ApiGatewayV2("Api");
 
-        api.route("GET /healthcheck", {
-            handler: "myfunc.handler",
-            link: [linkTable],
+        api.route("GET /health", "health.handler");
+
+        api.route("POST /create", {
+            handler: "create.handler",
+            link: [linkTable, api],
         });
 
         api.route("GET /{id}", {
