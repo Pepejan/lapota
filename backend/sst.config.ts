@@ -1,4 +1,7 @@
 /// <reference path="./.sst/platform/config.d.ts" />
+import { HandlerBuilder } from "./utils/handlerBuilder";
+const user = HandlerBuilder("user");
+const link = HandlerBuilder("link");
 
 export default $config({
     app(input) {
@@ -21,18 +24,20 @@ export default $config({
 
         api.route("GET /health", "health.handler");
 
+        api.route(`GET /me`, user("me"))
+
         api.route("POST /create", {
-            handler: "create.handler",
+            handler: link("create"),
             link: [linkTable, api],
         });
 
         api.route("GET /list", {
-            handler: "list.handler",
+            handler: link("list"),
             link: [linkTable, api],
         });
 
         api.route("GET /{id}", {
-            handler: "redirect.handler",
+            handler: link("redirect"),
             link: [linkTable],
         });
 

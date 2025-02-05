@@ -22,7 +22,7 @@ export async function handler() {
         body: JSON.stringify({
             count: result.Count,
             items: result.Items.map(item => ({ ...unmarshall(item), short: `${Resource.Api.url}/${item.id.S}` })),
-            //jk: unmarshall(result.Items),
+            jk: unmarshall(result.Items),
         }),
     };
 }
