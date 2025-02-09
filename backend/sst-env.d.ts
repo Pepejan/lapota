@@ -5,11 +5,27 @@
 
 declare module "sst" {
   export interface Resource {
+    "AccessTokenSecret": {
+      "type": "sst.sst.Secret"
+      "value": string
+    }
+    "AccessTokenTable": {
+      "name": string
+      "type": "sst.aws.Dynamo"
+    }
     "Api": {
       "type": "sst.aws.ApiGatewayV2"
       "url": string
     }
     "LinkTable": {
+      "name": string
+      "type": "sst.aws.Dynamo"
+    }
+    "RefreshTokenSecret": {
+      "type": "sst.sst.Secret"
+      "value": string
+    }
+    "UserTable": {
       "name": string
       "type": "sst.aws.Dynamo"
     }
