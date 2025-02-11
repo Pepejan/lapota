@@ -1,8 +1,9 @@
 import handleLogin from './login.tsx'
 import handleRegister from './register.tsx'
+
 function Header() {
     return (
-        <div className="col-m container bg-primary">
+        <div className="container-fluid bg-primary">
             <div className="row justify-content-md-center">
                 <nav className="navbar navbar-expand-sm">
                     <div className="container-fluid">

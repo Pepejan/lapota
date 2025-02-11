@@ -4,8 +4,9 @@ function handleLogin() {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ username: "testuser", password: "password123" })
+        body: JSON.stringify({ email: "testemail", password: "password123" })
     })
+
         .then(response => response.json())
         .then(data => console.log("Login success:", data))
         .catch(error => console.error("Login error:", error));
