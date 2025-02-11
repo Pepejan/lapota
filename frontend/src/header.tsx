@@ -1,3 +1,5 @@
+import handleLogin from './login.tsx'
+import handleRegister from './register.tsx'
 function Header() {
     return (
         <div className="col-m container bg-primary">
@@ -16,9 +18,11 @@ function Header() {
                             <div className="col col-lg-2">
                                 <a type="button"
                                    className="custom-css btn btn-primary  btn-outline-light btn-lg m-1"
+                                   onClick={handleLogin}
                                    id="LoginBtn">Login</a>
                                 <a type="button"
                                    className="custom-css btn btn-primary bg-success btn-outline-light btn-lg"
+                                   onClick={handleRegister}
                                    id="RegisterBtn">Sign up</a>
                             </div>
 
