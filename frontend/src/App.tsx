@@ -5,7 +5,7 @@ function App() {
   return (
       <div>
         <Header />
-        <LinkShorter /> {/* Використовуємо з великої літери */}
+        <LinkShorter /> {}
       </div>
   );
 }

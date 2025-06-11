@@ -18,7 +18,7 @@ function Header() {
 
                             <div className="col col-lg-2">
                                 <a type="button"
-                                   className="custom-css btn btn-primary  btn-outline-light btn-lg m-1"
+                                   className="custom-css btn btn-primary btn-outline-light btn-lg m-1"
                                    onClick={handleLogin}
                                    id="LoginBtn">Login</a>
                                 <a type="button"
