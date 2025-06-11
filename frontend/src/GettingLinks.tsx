@@ -1,10 +1,11 @@
 import { useState } from 'react';
-
+import ShortenedLink from './ShortenedLink';
 
 function LinkShorter() {
 
     const [inputValue, setInputValue] = useState('');
     const [error, setError] = useState('');
+    const [shortUrl, setShortUrl] = useState<string | null>(null);
 
     const handleClick = () => {
         if (!isValidUrl(inputValue)) {
@@ -12,9 +13,19 @@ function LinkShorter() {
             return;
         }
         setError("");
-        // backend for make link short
+        sendOldLink(inputValue);
 
     };
+    function sendOldLink(link: string) {
+        fetch('backend/link', {   //change link to correct
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({url: link})
+        })
+            .then(res => res.json())
+            .then(data => setShortUrl(data.shortUrl))
+            .catch(() => setError('Error when shortening a link'));
+    }
 
     function isValidUrl(url: string): boolean {
         try {
@@ -41,6 +52,11 @@ function LinkShorter() {
                     {error && <div className="invalid-feedback">{error}</div>}
                     <button className="btn btn-primary" type="button" onClick={handleClick}>Sent</button>
                 </div>
+
+                {shortUrl && (
+                    <ShortenedLink shortUrl={shortUrl} />
+                )}
+
             </div>
         </div>
     );
